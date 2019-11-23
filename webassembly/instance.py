@@ -1,9 +1,11 @@
 from abc import ABC, abstractmethod
-from exports import Exports
-from memory import Memory
+from webassembly.exports import Exports
+from webassembly.memory import Memory
+
 
 class Instance(ABC):
     pass
+
 
 class Instance(ABC):
     @abstractmethod

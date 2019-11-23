@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class MemoryView(ABC):
     @staticmethod
     @abstractmethod
@@ -22,35 +23,42 @@ class MemoryView(ABC):
         """Writes a portion of the memory view, either by using an index or a slice."""
         pass
 
+
 class Int8_View(MemoryView, ABC):
     @staticmethod
     def bytes_per_element() -> int:
         return 1
+
 
 class Int16_View(MemoryView, ABC):
     @staticmethod
     def bytes_per_element() -> int:
         return 2
 
+
 class Int32_View(MemoryView, ABC):
     @staticmethod
     def bytes_per_element() -> int:
         return 4
+
 
 class Uint8_View(MemoryView, ABC):
     @staticmethod
     def bytes_per_element() -> int:
         return 1
 
+
 class Uint16_View(MemoryView, ABC):
     @staticmethod
     def bytes_per_element() -> int:
         return 2
 
+
 class Uint32_View(MemoryView, ABC):
     @staticmethod
     def bytes_per_element() -> int:
         return 4
+
 
 class Memory(ABC):
     @abstractmethod

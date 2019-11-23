@@ -2,20 +2,21 @@ import unittest
 from pathlib import Path
 from os.path import join, dirname, abspath
 
-from examples.module import MyModule
+from examples.instance import MyInstance
+from tests import TestParentClass
 
 
-class TestModule(unittest.TestCase):
+class TestModule(TestParentClass):
     @classmethod
     def setUpClass(cls):
-        from examples.module import WebAssembly
-        path_str = join(dirname(dirname(dirname(abspath(__file__)))),
-                        'binaries', 'tests_binary.wasm')
-        cls.path = path = Path(path_str)
-        cls.module = WebAssembly(path)
+        super().setUpClass()
 
     def test_module(self):
         assert isinstance(self.module._bytes, bytes)
+
+    def test_instantiate(self):
+        instance = self.module.instantiate()
+        assert isinstance(instance, MyInstance)
 
 
 if __name__ == '__main__':

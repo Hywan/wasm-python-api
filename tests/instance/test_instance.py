@@ -2,10 +2,10 @@ import unittest
 from pathlib import Path
 from os.path import join, dirname, abspath
 
-from examples.module import MyModule
+from examples.instance import MyInstance
 
 
-class TestModule(unittest.TestCase):
+class TestInstance(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         from examples.module import WebAssembly
@@ -14,8 +14,9 @@ class TestModule(unittest.TestCase):
         cls.path = path = Path(path_str)
         cls.module = WebAssembly(path)
 
-    def test_module(self):
-        assert isinstance(self.module._bytes, bytes)
+    def test_instance(self):
+        instance = MyInstance(self.module)
+        assert instance.wasm_instance is not None
 
 
 if __name__ == '__main__':

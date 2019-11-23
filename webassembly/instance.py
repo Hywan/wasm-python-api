@@ -13,11 +13,12 @@ class Instance(ABC):
         """Compiles and instantiates WebAssembly bytes."""
         pass
 
-    @staticmethod
-    @abstractmethod
-    def from_module(module) -> Instance:
-        """Instantiates a WebAssembly module."""
-        pass
+    # # Need to collect use cases for this class method, see PR#1
+    # @classmethod
+    # @abstractmethod
+    # def from_module(module) -> Instance:
+    #     """Instantiates a WebAssembly module."""
+    #     pass
 
     @property
     @abstractmethod

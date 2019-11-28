@@ -1,7 +1,9 @@
 from abc import ABC, abstractmethod
 
+
 class Value(ABC):
     pass
+
 
 class Value(ABC):
     @staticmethod

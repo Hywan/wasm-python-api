@@ -1,12 +1,13 @@
 from abc import ABC, abstractmethod
-from instance import Instance
+from webassembly.instance import Instance
+
 
 class Module(ABC):
     pass
 
+
 class Module(ABC):
-    @abstractmethod
-    def __init__(self, bytes: bytes):
+    def __init__(self, bytes_: bytes):
         """Compiles WebAssembly bytes into a module."""
         pass
 

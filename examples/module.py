@@ -43,4 +43,4 @@ class MyModule(Module):
     def deserialize(cls, serialized_module) -> Module:
         if not isinstance(serialized_module, bytes):
             raise ValueError('value is not bytes')
-        return MyModule(serialized_module, cls._instance_cls)
+        return cls(serialized_module, cls._instance_cls)

@@ -8,17 +8,17 @@ class Instance(ABC):
 
 
 class Instance(ABC):
-    @abstractmethod
-    def __init__(self, bytes: bytes):
-        """Compiles and instantiates WebAssembly bytes."""
-        pass
-
-    # # Need to collect use cases for this class method, see PR#1
-    # @classmethod
+    # IMO, an Instance should be created only from a module
     # @abstractmethod
-    # def from_module(module) -> Instance:
-    #     """Instantiates a WebAssembly module."""
+    # def __init__(self, bytes: bytes):
+    #     """Compiles and instantiates WebAssembly bytes."""
     #     pass
+
+    @classmethod
+    @abstractmethod
+    def from_module(cls, module) -> Instance:
+        """Instantiates from a WebAssembly module."""
+        pass
 
     @property
     @abstractmethod
